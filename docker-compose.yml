@@ -6,12 +6,33 @@ services:
     depends_on:
       - db
     ports:
-      - "8069:8069"
+      - "8062:8069"
     environment:
       - ADDONS=sale_management,stock,account_account
+    networks:
+     odoo-docker: 
+      aliases:
+        - odoo-web
+    volumes:
+      - web:/var/lib/odoo
   db:
     image: postgres:10
+    ports:
+      - "5434:5432"
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
+    networks:
+     odoo-docker: 
+      aliases:
+        - postgres
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+   web: ~
+   db: ~
+
+networks:
+    odoo-docker:

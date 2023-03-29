@@ -20,7 +20,7 @@ RUN cd /tmp/ && wget https://github.com/mekomsolutions/odoo/archive/refs/heads/$
 RUN cd /opt/odoo && pip install -r requirements.txt
 
 # Expose Odoo services
-EXPOSE 8069 8071 8072
+EXPOSE 8062 8071 8072
 VOLUME ["/var/lib/odoo"]
 
 # Set the default config file
