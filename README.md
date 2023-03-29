@@ -10,7 +10,11 @@ Resources to build custom Docker image for Odoo
 ## Run the project
 
 ```
-docker-compose up
+docker-compose up -d
+```
+## Test Odoo locally or on production Server
+```
+http://localhost:8062
 ```
 
 ### Environment variables
